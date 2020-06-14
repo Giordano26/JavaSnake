@@ -66,7 +66,7 @@ public class Gameplay extends JPanel implements KeyListener, ActionListener  {
 
         addKeyListener(this); //The keylistener will recieve itself and record the keypressed
         setFocusable(true); //gives the panel a windows focus
-        setFocusTraversalKeysEnabled(false); //
+        setFocusTraversalKeysEnabled(false); //set the keys focus on windows
         timer = new Timer(delay, this); //Delay for initial input
         timer.start(); //start the timer
 
@@ -175,7 +175,7 @@ public class Gameplay extends JPanel implements KeyListener, ActionListener  {
                 g.drawString("Eli banks morreu!", 255, 300);
 
                 g.setFont(new Font("arial", Font.BOLD, 20));
-                g.drawString("Aperte espaço para tentar novamente", 300, 340);
+                g.drawString("Aperte Space para tentar novamente", 300, 340);
 
                 gameover = true;
                 

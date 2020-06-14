@@ -16,8 +16,9 @@ public class Gameplay extends JPanel implements KeyListener, ActionListener  {
     private int[] snakexlength = new int[750]; //snake x axis array
     private int[] snakeylength = new int[750]; //snake y axis array
 
-    private int proglast = 86;
+    private int proglast = 84;
     private int score = 0;
+    private int progs = 2;
 
     // Boolean for the keys pressed, gameplay input
     private boolean left = false;
@@ -115,7 +116,7 @@ public class Gameplay extends JPanel implements KeyListener, ActionListener  {
         //Draw length
         g.setColor(Color.white);
         g.setFont(new Font("arial", Font.PLAIN,14));
-        g.drawString("Progs Coletados: " + (lengthSnake - 1),700,50);
+        g.drawString("Progs Coletados: " + progs ,700,50);
 
 
         rightmouth = new ImageIcon("rightmouth.png");  //call the png rightmouth for an initial state
@@ -156,6 +157,7 @@ public class Gameplay extends JPanel implements KeyListener, ActionListener  {
         if((enemyypos[xpos] == snakexlength[0] && enemyypos[ypos] == snakeylength[0])){
             lengthSnake++;
             proglast--;
+            progs++;
             ypos =  1 + wololo.nextInt(22 - 1);  //generate the next random array index 
             xpos =  1 + gerador.nextInt(22 - 1);  //generate the next random array index 
             
@@ -200,8 +202,8 @@ public class Gameplay extends JPanel implements KeyListener, ActionListener  {
         }
         if(gameover)
         {
-            g.setFont(new Font("arial", Font.PLAIN,14));
-            g.drawString("Progs Coletados: " + (lengthSnake ),700,50);
+            progs++;
+
         }
         g.dispose(); //dispose the graphical content
     }
@@ -306,6 +308,9 @@ public class Gameplay extends JPanel implements KeyListener, ActionListener  {
             right = true;
             gameover = false;
             moves = 0;
+            progs = 2;
+            proglast = 86;
+            
 
 
         }}
